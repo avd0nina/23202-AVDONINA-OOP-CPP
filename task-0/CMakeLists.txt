@@ -11,28 +11,32 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 add_executable(23202_AVDONINA_OOP_CPP
-        task-0/src/main.cpp
-        task-0/src/FileReader.h
-        task-0/src/FileReader.cpp
-        task-0/src/Parser.h
-        task-0/src/Parser.cpp
-        task-0/src/Statistic.h
-        task-0/src/Statistic.cpp
-        task-0/src/Printer.h
-        task-0/src/Printer.cpp
+        src/FileReader.h
+        src/FileReader.cpp
+        src/Parser.h
+        src/Parser.cpp
+        src/Statistic.h
+        src/Statistic.cpp
+        src/Printer.h
+        src/Printer.cpp
+        src/main.cpp
 )
 
-add_executable(FileReaderTest task-0/src/FileReaderTest.cpp task-0/src/FileReader.cpp)
-add_executable(ParserTest task-0/src/ParserTest.cpp task-0/src/Parser.cpp)
-add_executable(StatisticTest task-0/src/StatisticTest.cpp task-0/src/Statistic.cpp)
+
+add_executable(FileReaderTest src/FileReaderTest.cpp src/FileReader.cpp)
+add_executable(ParserTest src/ParserTest.cpp src/Parser.cpp)
+add_executable(StatisticTest src/StatisticTest.cpp src/Statistic.cpp)
+add_executable(PrinterTest src/PrinterTest.cpp src/Printer.cpp)
 
 target_link_libraries(FileReaderTest GTest::gtest_main)
 target_link_libraries(ParserTest GTest::gtest_main)
 target_link_libraries(StatisticTest GTest::gtest_main)
+target_link_libraries(PrinterTest GTest::gtest_main)
+
 
 include(GoogleTest)
 gtest_discover_tests(FileReaderTest)
 gtest_discover_tests(ParserTest)
 gtest_discover_tests(StatisticTest)
-
+gtest_discover_tests(PrinterTest)
 enable_testing()
