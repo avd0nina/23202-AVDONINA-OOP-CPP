@@ -2,17 +2,19 @@
 #define FILEREADER_H
 
 #include <string>
-#include <list>
+#include <fstream>
 
 using namespace std;
 
 class FileReader {
 public:
     FileReader(const string& filename);
-    list<string> readLines();
+    ~FileReader();
+    string next();
+    bool hasNext();
 
 private:
-    string filename;
+    ifstream inputFile;
 };
 
 #endif // FILEREADER_H

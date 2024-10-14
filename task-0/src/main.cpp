@@ -1,8 +1,9 @@
 #include "FileReader.h"
 #include "Parser.h"
 #include "Statistic.h"
-#include "Printer.h"
+#include "CSVWriter.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -13,20 +14,38 @@ int main(int arguments_number, char* arguments[]) {
     }
 
     FileReader fileReader(arguments[1]);
-    list<string> lines = fileReader.readLines();
-    if (lines.empty()) {
+    if (!fileReader.hasNext()) {
+        cerr << "Error: Cannot open input file or file is empty.\n";
         return 1;
     }
 
     Parser parser;
     Statistic statistic;
-    for (const string& line : lines) {
-        list<string> words = parser.splitIntoWords(line);
-        statistic.processWords(words);
+
+    while (fileReader.hasNext()) {
+        string line = fileReader.next();
+        if (!line.empty()) {
+            list<string> words = parser.splitIntoWords(line);
+            statistic.processWords(words);
+        }
     }
 
-    Printer printer(arguments[2]);
-    printer.printStatistics(statistic.getWordFrequency(), statistic.getTotalWords());
+    vector<vector<string>> csvData;
+    csvData.push_back({"Слово", "Частота", "Частота (%)"});
+
+    const map<string, int>& wordFrequency = statistic.getWordFrequency();
+    int totalWords = statistic.getTotalWords();
+
+    for (const auto& entry : wordFrequency) {
+        vector<string> row;
+        row.push_back(entry.first);
+        row.push_back(to_string(entry.second));
+        row.push_back(to_string(static_cast<double>(entry.second) / totalWords * 100));
+        csvData.push_back(row);
+    }
+
+    CSVWriter csvWriter(arguments[2]);
+    csvWriter.write(csvData);
 
     return 0;
 }

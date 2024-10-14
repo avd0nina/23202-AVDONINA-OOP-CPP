@@ -1,21 +1,27 @@
 #include "FileReader.h"
-#include <fstream>
 #include <iostream>
 
-using namespace std;
-
-FileReader::FileReader(const string& filename) : filename(filename) {}
-
-list<string> FileReader::readLines() {
-    list<string> lines;
-    ifstream inputFile(filename);
+FileReader::FileReader(const string& filename) {
+    inputFile.open(filename);
     if (!inputFile.is_open()) {
-        return lines;
+        cerr << "Error: Не удалось открыть файл " << filename << endl;
     }
+}
+
+FileReader::~FileReader() {
+    if (inputFile.is_open()) {
+        inputFile.close();
+    }
+}
+
+bool FileReader::hasNext() {
+    return inputFile.is_open() && !inputFile.eof();
+}
+
+string FileReader::next() {
     string line;
-    while (getline(inputFile, line)) {
-        lines.push_back(line);
+    if (hasNext()) {
+        getline(inputFile, line);
     }
-    inputFile.close();
-    return lines;
+    return line;
 }
