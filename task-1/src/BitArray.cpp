@@ -39,25 +39,23 @@ BitArray& BitArray::operator=(const BitArray& b) {
 void BitArray::resize(int num_bits, bool value) {
     if (num_bits < 0)
         throw std::invalid_argument("Number of bits cannot be negative");
-    int old_num_blocks = (m_size + BITS_PER_BLOCK - 1) / BITS_PER_BLOCK; // вычисляет количество полных блоков, необходимых для хранения текущего размера m_size битов.
-    int new_num_blocks = (num_bits + BITS_PER_BLOCK - 1) / BITS_PER_BLOCK; // вычисляет количество полных блоков, необходимых для нового размера num_bits.
-    m_bits.resize(new_num_blocks, value ? ~0UL : 0UL); // метод resize класса std::vector изменяет размер вектора m_bits до new_num_blocks.
-    // если value равно true, каждый новый блок будет заполнен значением ~0UL (все биты установлены в 1).
-    // если value равно false, новые блоки будут заполнены нулями.
-    if (num_bits < m_size) { // если новый размер num_bits меньше текущего m_size
-        int last_full_block = num_bits / BITS_PER_BLOCK; // индекс последнего полного блока при новом размере
-        int bits_in_last_block = num_bits % BITS_PER_BLOCK; // количество битов в последнем (неполном) блоке
+    int old_num_blocks = (m_size + BITS_PER_BLOCK - 1) / BITS_PER_BLOCK;
+    int new_num_blocks = (num_bits + BITS_PER_BLOCK - 1) / BITS_PER_BLOCK; 
+    m_bits.resize(new_num_blocks, value ? ~0UL : 0UL); 
+    if (num_bits < m_size) { 
+        int last_full_block = num_bits / BITS_PER_BLOCK;
+        int bits_in_last_block = num_bits % BITS_PER_BLOCK; 
         if (bits_in_last_block != 0) {
-            unsigned long mask = (1UL << bits_in_last_block) - 1; // маска, которая имеет единицы для первых bits_in_last_block битов и нули для остальных.
-            m_bits[last_full_block] &= mask; // обрезаем ненужные биты, устанавливая их в 0
+            unsigned long mask = (1UL << bits_in_last_block) - 1; 
+            m_bits[last_full_block] &= mask; 
         }
     }
-    else if (value && (num_bits > m_size)) { // если новый размер больше старого, и значение value истинно, значит, мы продолжаем с кодом для увеличения размера.
-        int bits_in_old_last_block = m_size % BITS_PER_BLOCK; // количество битов, которые были использованы в старом последнем блоке.
+    else if (value && (num_bits > m_size)) { 
+        int bits_in_old_last_block = m_size % BITS_PER_BLOCK; 
         if (bits_in_old_last_block != 0) {
-            int block = m_size / BITS_PER_BLOCK; //  индекс блока, который был последним полным блоком до изменения размера.
-            unsigned long mask = (~0UL) << bits_in_old_last_block; // маска, в которой все биты установлены в 1, кроме первых bits_in_old_last_block, которые установлены в 0.
-            m_bits[block] |= mask; // применяем побитовую операцию OR с маской к блоку, который был последним полным блоком, чтобы установить ненужные биты в 1.
+            int block = m_size / BITS_PER_BLOCK;
+            unsigned long mask = (~0UL) << bits_in_old_last_block;
+            m_bits[block] |= mask;
         }
     }
     m_size = num_bits;
@@ -149,8 +147,7 @@ BitArray& BitArray::set(int n, bool val) {
     check_index(n);
     int block = n / BITS_PER_BLOCK;
     int offset = n % BITS_PER_BLOCK;
-    if (val) // если val равно true, устанавливается указанный бит в 1. Операция (1UL << offset) создаёт число, где только один бит (на позиции offset) равен 1, а остальные — 0.
-             // затем используется побитовое ИЛИ |= для установки бита в 1 в нужной позиции, оставляя все остальные биты в блоке неизменными.
+    if (val)
         m_bits[block] |= (1UL << offset);
     else
         m_bits[block] &= ~(1UL << offset);
