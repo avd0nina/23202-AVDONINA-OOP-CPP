@@ -22,6 +22,7 @@ int main()
     BitArray ba3(10, 3); // 0b11
     std::cout << "ba3.to_string(): " << ba3.to_string() << std::endl;
 
+    BitArray ba_and = ba2 & ba3;
     std::cout << "ba2 & ba3: " << ba_and.to_string() << std::endl;
 
     BitArray ba_or = ba2 | ba3;
