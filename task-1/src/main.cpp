@@ -18,7 +18,7 @@ int main() {
     ba2[3] = false;
     std::cout << "After ba2[3] = false, ba2.to_string(): " << ba2.to_string() << std::endl;
 
-    BitArray ba3(10, 3); // 0b11
+    BitArray ba3(10, 3);
     std::cout << "ba3.to_string(): " << ba3.to_string() << std::endl;
 
     BitArray ba_and = ba2 & ba3;
