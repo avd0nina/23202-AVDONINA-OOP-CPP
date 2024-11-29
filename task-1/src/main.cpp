@@ -1,8 +1,7 @@
 #include <iostream>
 #include "BitArray.h"
 
-int main()
-{
+int main() {
     BitArray ba1;
     std::cout << "ba1.empty(): " << ba1.empty() << std::endl;
 
