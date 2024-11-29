@@ -19,8 +19,8 @@ void setTrue(unsigned char &byte, int pos) {
     byte |= (1 << (7 - pos));
 }
 
-void setFalse(unsigned char &chank, int pos) {
-    chank &= ~(1 << (7 - pos));
+void setFalse(unsigned char &byte, int pos) {
+    byte &= ~(1 << (7 - pos));
 }
 
 int normalize(int coord, int size) {
@@ -46,11 +46,11 @@ Field::Field(std::vector<Point> coords) {
         //??
         int num_chank = i.x * numByte(size_) + numByte(i.y);
         int pos = numInByte(i.y);
-        num_chank += i.y % 8 == 0 && i.y != 0? 0: -1;
-        if (checkBit(field_[num_chank], pos)) {
+        num_byte += i.y % 8 == 0 && i.y != 0? 0: -1;
+        if (checkBit(field_[num_byte], pos)) {
             throw std::invalid_argument("Coordinates repeate");
         } else {
-            setTrue(field_[num_chank], pos);
+            setTrue(field_[num_byte], pos);
         }
     }
 }
@@ -60,20 +60,20 @@ int Field::getSize() const {
 }
 
 bool Field::getState(int row, int column) const{
-    int num_chank = row * numByte(size_) + numByte(column);
+    int num_byte = row * numByte(size_) + numByte(column);
     int pos = numInByte(column);
-    num_chank += column % 8 == 0 && column != 0? 0: -1;
-    return checkBit(field_[num_chank], pos);
+    num_byte += column % 8 == 0 && column != 0? 0: -1;
+    return checkBit(field_[num_byte], pos);
 }
 
 void Field::setState(int row, int column, bool value) {
-    int num_chank = row * numByte(size_) + numByte(column);
+    int num_byte = row * numByte(size_) + numByte(column);
     int pos = numInByte(column);
-    num_chank += column % 8 == 0 && column != 0? 0: -1;
+    num_byte += column % 8 == 0 && column != 0? 0: -1;
     if (value) {
-        setTrue(field_[num_chank], pos);
+        setTrue(field_[num_byte], pos);
     } else {
-        setFalse(field_[num_chank], pos);
+        setFalse(field_[num_byte], pos);
     }
 }
 std::vector<bool> ruleToBool(const std::string &rule) {
