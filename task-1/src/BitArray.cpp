@@ -325,16 +325,3 @@ BitArray::reference& BitArray::reference::flip() {
     return *this;
 }
 
-//int main() {
-//    BitArray obj(8, 0b1010); // 8 бит, начальное значение 0b1010
-//    BitArray result = 2 | obj; // 2 -> 0b0010
-//    std::cout << "Result of 2 | obj: " << result.to_string() << std::endl;
-//
-//    BitArray and_result = 3 & obj; // 3 -> 0b0011
-//    std::cout << "Result of 3 & obj: " << and_result.to_string() << std::endl;
-//
-//    BitArray xor_result = 7 ^ obj; // 7 -> 0b0111
-//    std::cout << "Result of 7 ^ obj: " << xor_result.to_string() << std::endl;
-//
-//    return 0;
-//}
