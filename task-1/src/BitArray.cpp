@@ -99,6 +99,32 @@ BitArray& BitArray::operator^=(const BitArray& b) {
     return *this;
 }
 
+BitArray BitArray::from_int(int value, int num_bits) {
+    if (num_bits < 0)
+        throw std::invalid_argument("Number of bits cannot be negative");
+    BitArray result(num_bits);
+    if (num_bits > 0) {
+        unsigned long mask = (1UL << num_bits) - 1;
+        result.m_bits[0] = static_cast<unsigned long>(value) & mask;
+    }
+    return result;
+}
+
+BitArray operator|(int value, const BitArray& b) {
+    BitArray temp = BitArray::from_int(value, b.size());
+    return temp | b;
+}
+
+BitArray operator&(int value, const BitArray& b) {
+    BitArray temp = BitArray::from_int(value, b.size());
+    return temp & b;
+}
+
+BitArray operator^(int value, const BitArray& b) {
+    BitArray temp = BitArray::from_int(value, b.size());
+    return temp ^ b;
+}
+
 BitArray& BitArray::operator<<=(int n) {
     if (n < 0)
         return (*this) >>= -n;
@@ -298,3 +324,17 @@ BitArray::reference& BitArray::reference::flip() {
     m_bitarray.set(m_index, !current);
     return *this;
 }
+
+//int main() {
+//    BitArray obj(8, 0b1010); // 8 бит, начальное значение 0b1010
+//    BitArray result = 2 | obj; // 2 -> 0b0010
+//    std::cout << "Result of 2 | obj: " << result.to_string() << std::endl;
+//
+//    BitArray and_result = 3 & obj; // 3 -> 0b0011
+//    std::cout << "Result of 3 & obj: " << and_result.to_string() << std::endl;
+//
+//    BitArray xor_result = 7 ^ obj; // 7 -> 0b0111
+//    std::cout << "Result of 7 ^ obj: " << xor_result.to_string() << std::endl;
+//
+//    return 0;
+//}
