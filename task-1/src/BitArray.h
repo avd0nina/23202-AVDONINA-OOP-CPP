@@ -12,6 +12,7 @@ public:
     BitArray();
     ~BitArray();
     explicit BitArray(int num_bits, unsigned long value = 0);
+    // констр копирования
     BitArray(const BitArray& b);
     void swap(BitArray& b);
     BitArray& operator=(const BitArray& b);
@@ -20,7 +21,7 @@ public:
     void push_back(bool bit);
     BitArray& operator&=(const BitArray& b);
     BitArray& operator|=(const BitArray& b);
-    BitArray& operator^=(const BitArray& b);
+    BitArray& operator^=(const BitArray b);
     BitArray& operator<<=(int n);
     BitArray& operator>>=(int n);
     BitArray operator<<(int n) const;
@@ -33,6 +34,7 @@ public:
     bool none() const;
     BitArray operator~() const;
     int count() const;
+    static BitArray from_int(int value, int num_bits);
 
     class reference {
     public:
@@ -56,6 +58,9 @@ public:
     friend BitArray operator&(const BitArray& b1, const BitArray& b2);
     friend BitArray operator|(const BitArray& b1, const BitArray& b2);
     friend BitArray operator^(const BitArray& b1, const BitArray& b2);
+    friend BitArray operator|(int lhs, const BitArray& rhs);
+    friend BitArray operator&(int lhs, const BitArray& rhs);
+    friend BitArray operator^(int lhs, const BitArray& rhs);
 
 private:
     std::vector<unsigned long> m_bits;
