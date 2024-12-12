@@ -41,8 +41,9 @@ Field::Field() {
 Field::Field(std::vector<Point> coords) {
     field_.resize(size_ * numByte(size_), 0);
     for (auto& i: coords) {
-        i.x = normalize(i.x, size_);
-        i.y = normalize(i.y, size_);
+        if (i.x < 0 || i.x >= size_ || i.y < 0 || i.y >= size_) {
+            throw std::invalid_argument("Coordinates out of range");
+        }
         int num_byte = i.x * numByte(size_) + numByte(i.y);
         int pos = numInByte(i.y);
         num_byte += i.y % 8 == 0 && i.y != 0 ? 0 : -1;
@@ -84,25 +85,30 @@ std::vector<bool> ruleToBool(const std::string &rule) {
     return std::move(new_rule);
 }
 
-int neighbors(
-        const Field &field,
-        int size,
-        int row,
-        int column
-) {
+int Field::neighbors(int row, int column) const {
     int count = 0;
     for (int i = -1; i < 2; ++i) {
         for (int j = -1; j < 2; ++j) {
             if (i != 0 || j != 0) {
-                int n_row = normalize(row + i, size);
-                int n_column = normalize(column + j, size);
-                if (field.getState(n_row, n_column)) {
+                int n_row = normalize(row + i, size_);
+                int n_column = normalize(column + j, size_);
+                if (getState(n_row, n_column)) {
                     ++count;
                 }
             }
         }
     }
     return count;
+}
+
+std::vector<std::vector<bool>> Field::toVector() const {
+    std::vector<std::vector<bool>> grid(size_, std::vector<bool>(size_, false));
+    for (int row = 0; row < size_; ++row) {
+        for (int column = 0; column < size_; ++column) {
+            grid[row][column] = getState(row, column);
+        }
+    }
+    return grid;
 }
 
 Game_model::Game_model(): Game_model(
@@ -125,7 +131,7 @@ Game_model::Game_model(
 {};
 
 const Field& Game_model::getField() const {
-    return current_field_ == 1 ? field_1_: field_2_;
+    return  field_1_;
 }
 
 const std::string& Game_model::getName() const {
@@ -137,19 +143,17 @@ int Game_model::getGlobIteration() const {
 }
 
 void Game_model::computeIteration() {
-    auto old_field = current_field_ == 1 ? &field_1_: &field_2_;
-    auto new_field = current_field_ == 1 ? &field_2_: &field_1_;
     for (int i = 0; i < field_1_.getSize(); ++i) {
         for (int j = 0; j < field_1_.getSize(); ++j) {
-            new_field->setState(i, j, false);
-            int count_neigh = neighbors(*old_field, old_field->getSize(), i, j);
-            if (old_field->getState(i, j) && s_rule_[count_neigh]) {
-                new_field->setState(i, j, true);
-            } else if (!old_field->getState(i, j) && b_rule_[count_neigh]) {
-                new_field->setState(i, j, true);
+            field_2_.setState(i, j, false);
+            int count_neigh = field_1_.neighbors(i, j);
+            if (field_1_.getState(i, j) && s_rule_[count_neigh]) {
+                field_2_.setState(i, j, true);
+            } else if (!field_1_.getState(i, j) && b_rule_[count_neigh]) {
+                field_2_.setState(i, j, true);
             }
         }
     }
-    current_field_ = current_field_ == 1 ? 2: 1;
+    std::swap(field_1_, field_2_);
     ++global_iteration_;
 }

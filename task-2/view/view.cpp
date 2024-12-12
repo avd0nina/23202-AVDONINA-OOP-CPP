@@ -1,5 +1,6 @@
 #include "view.h"
 #include <unistd.h>
+
 namespace {
     const std::string helpMessage =
             " dump <filename> - сохранить вселенную в файл                           \n"
@@ -26,8 +27,11 @@ void Game_view::printFrame(
     std::cout << "Name: " + name + ";" << std::endl;
     std::cout << "Total iteration: " << glob_iteration << ";" << std::endl;
     std::cout << "Curr iteration: " << curr_iteration << ";" << std::endl;
-    for (int i = -1; i <= field.getSize(); ++i) {
-        for (int j = -1; j <= field.getSize(); ++j) {
+
+    int size = field.getSize();
+
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
             if (field.getState(i, j)) {
                 std::cout << "* ";
             } else {

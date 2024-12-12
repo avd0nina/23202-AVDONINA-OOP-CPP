@@ -1,3 +1,4 @@
+
 #ifndef TASK_2_MODEL_H
 #define TASK_2_MODEL_H
 
@@ -29,6 +30,8 @@ public:
     int getSize() const;
     bool getState(int row, int column) const;
     void setState(int row, int column, bool value);
+    int neighbors(int row, int column) const;
+    std::vector<std::vector<bool>> toVector() const;
 };
 
 class Game_model {
@@ -37,7 +40,6 @@ private:
     std::string name_;
     const std::vector<bool> b_rule_;
     const std::vector<bool> s_rule_;
-    char current_field_ = 1;
     Field field_1_;
     Field field_2_;
 public:
