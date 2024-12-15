@@ -101,16 +101,6 @@ int Field::neighbors(int row, int column) const {
     return count;
 }
 
-std::vector<std::vector<bool>> Field::toVector() const {
-    std::vector<std::vector<bool>> grid(size_, std::vector<bool>(size_, false));
-    for (int row = 0; row < size_; ++row) {
-        for (int column = 0; column < size_; ++column) {
-            grid[row][column] = getState(row, column);
-        }
-    }
-    return grid;
-}
-
 Game_model::Game_model(): Game_model(
         Default_name,
         Default_b_rule,
