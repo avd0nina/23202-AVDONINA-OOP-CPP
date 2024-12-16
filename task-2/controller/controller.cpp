@@ -109,29 +109,21 @@ void SimulationController::runInteractiveMode() { // запускает симу
     try {
         std::string command = "help";
         while (command != "exit") {
-            if (command.substr(0, 4) == "tick") {
-                int num_tick = command.size() > 4 ? parseNumber(command.substr(5)) : 1;
-                for (int i = 0; i < num_tick; ++i) {
-                    view_.printFrame(model_->getName(), model_->getField(), model_->getGlobIteration() + 1, i + 1);
-                    model_->computeIteration();
-                }
-            } else if (command.substr(0, 4) == "dump") {
-                if (command.size() < 6 || command.substr(command.size() - 4) != ".txt") {
-                    view_.printErr("Invalid dump file name");
-                } else {
-                    std::ofstream ofile(command.substr(5));
-                    if (ofile.is_open()) {
-                        printInFile(ofile, model_->getField(), model_->getName(), model_->getGlobIteration());
-                    }
-                }
-            } else {
-                view_.printHelp();
+            try {
+                std::string command_name = command.substr(0, command.find(' '));
+                std::string args = command.size() > command_name.size() ? command.substr(command_name.size() + 1) : "";
+                std::unique_ptr<Command> command = parseCommand(command_name);
+                command->execute(*this, args);
+            } catch (const std::invalid_argument& err) {
+                view_.printErr(err.what());
             }
             std::getline(std::cin, command);
         }
-    } catch (const std::invalid_argument& err) {
-        view_.printErr(err.what());
-        throw;
+    } catch (const std::runtime_error& err) {
+        if (std::string(err.what()) != "exit") {
+            view_.printErr(err.what());
+            throw;
+        }
     }
 }
 
