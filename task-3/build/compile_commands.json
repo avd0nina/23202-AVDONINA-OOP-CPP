@@ -1,0 +1,104 @@
+[
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/config_parser.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/config_parser.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/config_parser.cpp",
+  "output": "CMakeFiles/corelib.dir/src/config_parser.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/converters_factory.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters_factory.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters_factory.cpp",
+  "output": "CMakeFiles/corelib.dir/src/converters_factory.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/processor.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/processor.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/processor.cpp",
+  "output": "CMakeFiles/corelib.dir/src/processor.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/streams.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/streams.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/streams.cpp",
+  "output": "CMakeFiles/corelib.dir/src/streams.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/utils.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/utils.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/utils.cpp",
+  "output": "CMakeFiles/corelib.dir/src/utils.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/wav.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/wav.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/wav.cpp",
+  "output": "CMakeFiles/corelib.dir/src/wav.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/converters/converters_utils.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/converters_utils.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/converters_utils.cpp",
+  "output": "CMakeFiles/corelib.dir/src/converters/converters_utils.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/converters/cut_converter.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/cut_converter.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/cut_converter.cpp",
+  "output": "CMakeFiles/corelib.dir/src/converters/cut_converter.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/converters/mix_converter.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/mix_converter.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/mix_converter.cpp",
+  "output": "CMakeFiles/corelib.dir/src/converters/mix_converter.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/corelib.dir/src/converters/mute_converter.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/mute_converter.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/converters/mute_converter.cpp",
+  "output": "CMakeFiles/corelib.dir/src/converters/mute_converter.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++  -I/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/argparse-src/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/SoundProcessor.dir/src/main.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/main.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/src/main.cpp",
+  "output": "CMakeFiles/SoundProcessor.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++  -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/Tests.dir/tests/wav_tests.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/tests/wav_tests.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/tests/wav_tests.cpp",
+  "output": "CMakeFiles/Tests.dir/tests/wav_tests.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build",
+  "command": "/usr/bin/clang++  -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -o CMakeFiles/Tests.dir/tests/config_parser_tests.cpp.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/tests/config_parser_tests.cpp",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/tests/config_parser_tests.cpp",
+  "output": "CMakeFiles/Tests.dir/tests/config_parser_tests.cpp.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -I/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/include -I/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -I/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -I/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/include -isystem /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/Users/maxermolaev/Desktop/nsu/oop/lab4.1/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]
